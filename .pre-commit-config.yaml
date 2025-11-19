@@ -1,0 +1,5 @@
+repos:
+  - repo: https://github.com/Bartinos/ml-assignment-2
+    rev: develop
+    hooks:
+      - id: nbstripout
