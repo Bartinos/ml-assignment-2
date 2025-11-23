@@ -1,5 +1,5 @@
 repos:
   - repo: https://github.com/Bartinos/ml-assignment-2
-    rev: develop
+    rev: 6fff45ec447ef87cf40cc4973d94ad5afbf7857a
     hooks:
       - id: nbstripout
