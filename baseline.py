@@ -40,7 +40,7 @@ def create_submission(
     Path(json_name).write_text(json.dumps(output, indent=2), encoding="utf-8")
 
     with zipfile.ZipFile(zip_name, "w", zipfile.ZIP_DEFLATED) as z:
-        z.write(json_name, arcname=json_name)
+        z.write(json_name, arcname=json_name.split("/")[1])
 
     print(f"Saved: {json_name}, {zip_name}")
     return str(zip_name)
@@ -69,8 +69,8 @@ if __name__ == "__main__":
     np.random.seed(SEED)
 
     # --- Load data ---
-    df = pd.read_csv("data/train.csv")
-    test_df = pd.read_csv("data/test.csv")
+    df = pd.read_csv("data/train.csv", index_col=0)
+    test_df = pd.read_csv("data/test.csv", index_col=0)
     cost_matrix = pd.read_csv("data/cost_matrix.csv", index_col=0).values
 
     # --- Encode target and split ---
